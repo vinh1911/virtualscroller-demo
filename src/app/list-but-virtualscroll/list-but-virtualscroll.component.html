@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="tool-bar">
+        <mat-slide-toggle color="primary" [checked]="compactMode" (change)="compactMode = !compactMode">Compact Mode
+        </mat-slide-toggle>
+        <mat-slider color="primary" thumbLabel class="slider" min="1" max="100" [value]="fontSize"
+            (input)="fontSize = $event.value"></mat-slider>
+    </div>
+    <cdk-virtual-scroll-viewport itemSize="49" class="user-container">
+        <div class="user-card" *cdkVirtualFor="let item of users; let i = index">
+            <mat-divider></mat-divider>
+            <div class="info-container" [style.font-size.px]="fontSize">
+                <img class="user-image" [src]="item?.image">
+                <div class="user-info">
+                    <span class="user-name">{{item?.name}} </span><span> {{users.indexOf(item) + 1}}</span>
+                    <br *ngIf="!compactMode">
+                    <span *ngIf="!compactMode" class="user-text">{{item?.text}}</span>
+                </div>
+            </div>
+        </div>
+    </cdk-virtual-scroll-viewport>
+</div>

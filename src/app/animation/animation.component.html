@@ -1,0 +1,9 @@
+<div class='container'>
+    <img [src]="photoUrl" [@photoState]="position" class="photo">
+    <div class="button-container">
+        <button mat-stroked-button (click)="changePosition('move')" class="button">Translate</button>
+        <button mat-stroked-button (click)="changePosition('spin')" class="button">Rotate</button>
+        <button mat-stroked-button (click)="changePosition('enlarge')" class="button">Scale</button>
+        <button mat-stroked-button (click)="changePosition(null)" class="button">Reset</button>
+    </div>
+</div>
